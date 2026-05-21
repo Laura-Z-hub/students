@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Studentet - Render Express</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <section class="hero">
+      <h1>Lista e Studentëve 🎓</h1>
+      <p>
+        Ky frontend merr të dhëna nga databaza PostgreSQL në Render
+        përmes një API-je Express.js.
+      </p>
+      <button onclick="loadStudents()">Rifresko të dhënat</button>
+    </section>
+
+    <section class="card">
+      <h2>Studentët në databazë</h2>
+      <div id="students" class="students">
+        Duke u ngarkuar...
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
