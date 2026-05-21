@@ -29,6 +29,31 @@ app.get("/api/students", async (req, res) => {
   }
 });
 
+app.get("/setup-db", async (req, res) => {
+  try {
+    await pool.query(`
+      CREATE TABLE IF NOT EXISTS students (
+        id SERIAL PRIMARY KEY,
+        name VARCHAR(100),
+        age INT,
+        course VARCHAR(100)
+      )
+    `);
+
+    await pool.query(`
+      INSERT INTO students(name,age,course)
+      VALUES
+      ('Ardi',16,'Informatike'),
+      ('Elira',17,'Programim'),
+      ('Noel',15,'Web Development')
+    `);
+
+    res.send("Databaza dhe tabela u krijuan ✅");
+  } catch (err) {
+    res.send(err.message);
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`Serveri po punon ne porten ${PORT}`);
 });
